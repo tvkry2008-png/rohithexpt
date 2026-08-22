@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municipal Citizen Service Request & Grievance Portal</title>
+  <meta name="description" content="Official Municipal Citizen Service Request and Grievance Management Platform. Lodge, track, and monitor municipal service resolution in real time.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="brand-section">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <h1>CityGov Grievance Portal</h1>
+          <p>Municipal Citizen Service & Grievance Management System</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="live-indicator">
+          <div class="pulse-dot"></div>
+          <span>Municipal Dispatch Live</span>
+        </div>
+
+        <div class="role-switcher">
+          <button class="role-btn active" id="btnCitizenRole" onclick="switchRole('citizen')">Citizen View</button>
+          <button class="role-btn" id="btnAdminRole" onclick="switchRole('admin')">Admin / Officer</button>
+        </div>
+
+        <button class="btn-primary" onclick="openSubmitModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Lodge Grievance
+        </button>
+      </div>
+    </header>
+
+    <!-- Quick Stats Bar -->
+    <section class="stats-grid" id="statsGrid">
+      <div class="stat-card" style="--stat-accent: #38bdf8;">
+        <div class="stat-info">
+          <h4>Total Grievances</h4>
+          <div class="stat-value" id="statTotal">--</div>
+        </div>
+        <div class="stat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        </div>
+      </div>
+
+      <div class="stat-card" style="--stat-accent: #34d399;">
+        <div class="stat-info">
+          <h4>Resolution Rate</h4>
+          <div class="stat-value" id="statRate">--%</div>
+        </div>
+        <div class="stat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+      </div>
+
+      <div class="stat-card" style="--stat-accent: #fbbf24;">
+        <div class="stat-info">
+          <h4>Active / In Progress</h4>
+          <div class="stat-value" id="statActive">--</div>
+        </div>
+        <div class="stat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+      </div>
+
+      <div class="stat-card" style="--stat-accent: #f87171;">
+        <div class="stat-info">
+          <h4>Critical Escalations</h4>
+          <div class="stat-value" id="statCritical">--</div>
+        </div>
+        <div class="stat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('grievances', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Service Requests Directory
+      </button>
+      <button class="tab-btn" onclick="switchTab('tracker', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        Track Ticket Status
+      </button>
+      <button class="tab-btn" onclick="switchTab('departments', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+        Municipal Departments
+      </button>
+      <button class="tab-btn" onclick="switchTab('analytics', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        Analytics & SLA
+      </button>
+      <button class="tab-btn admin-only" id="adminTabBtn" style="display: none;" onclick="switchTab('admin', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        Officer Control Panel
+      </button>
+    </nav>
+
+    <!-- Toolbar / Filters -->
+    <div class="toolbar-section" id="toolbarSection">
+      <div class="search-box">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="searchInput" placeholder="Search by Ticket ID (e.g. GRV-2026-1001), keyword, or location..." oninput="handleSearch()">
+      </div>
+
+      <div class="filter-group">
+        <select class="filter-select" id="filterDept" onchange="applyFilters()">
+          <option value="ALL">All Departments</option>
+        </select>
+
+        <select class="filter-select" id="filterStatus" onchange="applyFilters()">
+          <option value="ALL">All Statuses</option>
+          <option value="Submitted">Submitted</option>
+          <option value="Under Review">Under Review</option>
+          <option value="Assigned">Assigned</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Resolved">Resolved</option>
+        </select>
+
+        <select class="filter-select" id="filterPriority" onchange="applyFilters()">
+          <option value="ALL">All Priorities</option>
+          <option value="Critical">Critical</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT VIEW PANELS -->
+    <main>
+      
+      <!-- TAB 1: Grievances Directory -->
+      <section id="tabGrievances" class="tab-content active">
+        <div class="grievance-grid" id="grievanceGrid">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </section>
+
+      <!-- TAB 2: Ticket Tracker -->
+      <section id="tabTracker" class="tab-content" style="display: none;">
+        <div class="grievance-card" style="max-width: 800px; margin: 0 auto;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Citizen Ticket Status Tracker</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">Enter your unique Grievance Tracking Code to view real-time resolution timeline & officer notes.</p>
+          
+          <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <input type="text" id="trackerInput" placeholder="Enter Ticket Code (e.g., GRV-2026-1001)" class="filter-select" style="flex: 1; font-size: 1rem; padding: 0.8rem 1rem;">
+            <button class="btn-primary" onclick="trackTicketByCode()">Track Ticket</button>
+          </div>
+
+          <div id="trackerResultContainer"></div>
+        </div>
+      </section>
+
+      <!-- TAB 3: Departments View -->
+      <section id="tabDepartments" class="tab-content" style="display: none;">
+        <div class="dept-grid" id="deptGrid">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- TAB 4: Analytics View -->
+      <section id="tabAnalytics" class="tab-content" style="display: none;">
+        <div class="analytics-grid">
+          <div class="chart-card">
+            <h3 style="font-size: 1.1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.75rem;">Department Resolution Workload</h3>
+            <div class="bar-chart-list" id="deptAnalyticsList">
+              <!-- Dynamically populated bars -->
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <h3 style="font-size: 1.1rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.75rem;">Priority Distribution</h3>
+            <div class="bar-chart-list" id="priorityAnalyticsList">
+              <!-- Dynamically populated priority bars -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: Admin Panel -->
+      <section id="tabAdmin" class="tab-content" style="display: none;">
+        <div class="grievance-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 1rem; margin-bottom: 1rem;">
+            <div>
+              <h3>Municipal Officer Control Center</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Manage ticket assignments, update status, and communicate resolution progress.</p>
+            </div>
+            <span class="badge badge-progress">Admin Access Granted</span>
+          </div>
+
+          <div id="adminTableContainer" style="overflow-x: auto;">
+            <!-- Admin Table dynamically rendered -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- MODAL 1: Lodge Grievance -->
+  <div class="modal-overlay" id="submitModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Lodge Municipal Grievance / Service Request</h3>
+        <button class="close-modal" onclick="closeSubmitModal()">&times;</button>
+      </div>
+
+      <form id="grievanceForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="formTitle">Grievance Title / Short Summary *</label>
+          <input type="text" id="formTitle" required placeholder="e.g. Broken Water Pipeline leaking on Main Street">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formCategory">Department Category *</label>
+            <select id="formCategory" required>
+              <option value="">Select Department...</option>
+              <option value="DEPT-WTR">Water & Sewage Supply</option>
+              <option value="DEPT-PWR">Electrical & Street Lighting</option>
+              <option value="DEPT-SAN">Sanitation & Waste Mgmt</option>
+              <option value="DEPT-RDS">Roads & Civil Infrastructure</option>
+              <option value="DEPT-PRK">Parks & Environmental Health</option>
+              <option value="DEPT-SAF">Public Safety & Traffic Control</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="formPriority">Urgency / Priority *</label>
+            <select id="formPriority" required>
+              <option value="Medium">Medium Priority (Standard SLA)</option>
+              <option value="Low">Low Priority (Routine Request)</option>
+              <option value="High">High Priority (Urgent Action)</option>
+              <option value="Critical">Critical Emergency (Immediate Hazard)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formLocation">Exact Location / Address / Landmark *</label>
+          <input type="text" id="formLocation" required placeholder="e.g. 5th Ave & Elm St, Near Central Bank Branch">
+        </div>
+
+        <div class="form-group">
+          <label for="formDescription">Detailed Description *</label>
+          <textarea id="formDescription" rows="4" required placeholder="Describe the issue, duration, safety concerns, or specifics..."></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formCitizenName">Your Full Name</label>
+            <input type="text" id="formCitizenName" placeholder="e.g. Jane Doe">
+          </div>
+
+          <div class="form-group">
+            <label for="formCitizenPhone">Contact Phone Number</label>
+            <input type="tel" id="formCitizenPhone" placeholder="e.g. +1 (555) 000-1122">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formCitizenEmail">Email Address (for Status Notifications)</label>
+          <input type="email" id="formCitizenEmail" placeholder="e.g. citizen@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="formImageUrl">Attachment Image URL (Optional Mock Photo)</label>
+          <input type="url" id="formImageUrl" placeholder="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b2">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+          <button type="button" class="btn-secondary" onclick="closeSubmitModal()">Cancel</button>
+          <button type="submit" class="btn-primary">Submit Service Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Grievance Details Drawer / Timeline -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <span class="ticket-id" id="detailTicketId">GRV-2026-XXXX</span>
+          <h3 id="detailTitle" style="margin-top: 0.3rem;">Detail View</h3>
+        </div>
+        <button class="close-modal" onclick="closeDetailsModal()">&times;</button>
+      </div>
+
+      <div id="detailsBody">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Admin Action Update Modal -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Update Grievance Ticket - Admin Action</h3>
+        <button class="close-modal" onclick="closeAdminModal()">&times;</button>
+      </div>
+
+      <form id="adminUpdateForm" onsubmit="handleAdminUpdate(event)">
+        <input type="hidden" id="adminTicketId">
+        
+        <div class="form-group">
+          <label>Ticket ID</label>
+          <input type="text" id="adminTicketDisplayId" readonly style="opacity: 0.7;">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="adminStatus">Update Status *</label>
+            <select id="adminStatus">
+              <option value="Submitted">Submitted</option>
+              <option value="Under Review">Under Review</option>
+              <option value="Assigned">Assigned</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="adminPriority">Update Priority *</label>
+            <select id="adminPriority">
+              <option value="Critical">Critical</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="adminOfficer">Assigned Field Unit / Officer</label>
+          <input type="text" id="adminOfficer" placeholder="e.g. Electrical Crew 4 (Lead: Miller)">
+        </div>
+
+        <div class="form-group">
+          <label for="adminNote">Official Dispatch / Resolution Progress Note</label>
+          <textarea id="adminNote" rows="3" placeholder="Enter notes for citizen and dispatch timeline logs..."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+          <button type="button" class="btn-secondary" onclick="closeAdminModal()">Cancel</button>
+          <button type="submit" class="btn-primary">Save Updates</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "DEPT-WTR",
+    "name": "Water & Sewage Supply",
+    "icon": "droplet",
+    "head": "Eng. Sarah Jenkins",
+    "email": "water.dept@citygov.org",
+    "phone": "+1 (555) 019-2831",
+    "slaHours": 24,
+    "activeTickets": 14,
+    "resolvedThisMonth": 182
+  },
+  {
+    "id": "DEPT-PWR",
+    "name": "Electrical & Street Lighting",
+    "icon": "zap",
+    "head": "Robert Vance",
+    "email": "power.dept@citygov.org",
+    "phone": "+1 (555) 019-4720",
+    "slaHours": 12,
+    "activeTickets": 8,
+    "resolvedThisMonth": 145
+  },
+  {
+    "id": "DEPT-SAN",
+    "name": "Sanitation & Waste Mgmt",
+    "icon": "trash-2",
+    "head": "Elena Rostova",
+    "email": "sanitation@citygov.org",
+    "phone": "+1 (555) 019-8812",
+    "slaHours": 18,
+    "activeTickets": 19,
+    "resolvedThisMonth": 310
+  },
+  {
+    "id": "DEPT-RDS",
+    "name": "Roads & Civil Infrastructure",
+    "icon": "truck",
+    "head": "Marcus Brody",
+    "email": "infrastructure@citygov.org",
+    "phone": "+1 (555) 019-3391",
+    "slaHours": 48,
+    "activeTickets": 23,
+    "resolvedThisMonth": 94
+  },
+  {
+    "id": "DEPT-PRK",
+    "name": "Parks & Environmental Health",
+    "icon": "tree-pine",
+    "head": "Dr. Anita Desai",
+    "email": "environment@citygov.org",
+    "phone": "+1 (555) 019-7742",
+    "slaHours": 36,
+    "activeTickets": 5,
+    "resolvedThisMonth": 67
+  },
+  {
+    "id": "DEPT-SAF",
+    "name": "Public Safety & Traffic Control",
+    "icon": "shield-alert",
+    "head": "Captain David Miller",
+    "email": "publicsafety@citygov.org",
+    "phone": "+1 (555) 019-5510",
+    "slaHours": 8,
+    "activeTickets": 3,
+    "resolvedThisMonth": 128
+  }
+]

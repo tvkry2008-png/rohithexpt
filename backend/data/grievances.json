@@ -1,0 +1,244 @@
+[
+  {
+    "id": "GRV-2026-9049",
+    "title": "not at all good",
+    "category": "DEPT-PRK",
+    "departmentName": "Parks & Environmental Health",
+    "description": "not good",
+    "location": "ongole",
+    "coordinates": {
+      "lat": 40.71426311432003,
+      "lng": -74.04967563168206
+    },
+    "priority": "Medium",
+    "status": "Submitted",
+    "citizenName": "Rohith Reddy",
+    "citizenPhone": "N/A",
+    "citizenEmail": "tvkry2008@gmail.com",
+    "submittedAt": "2026-08-22T05:01:45.650Z",
+    "updatedAt": "2026-08-22T05:01:45.650Z",
+    "assignedOfficer": "Pending Dispatch",
+    "imageUrl": "https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?w=600&auto=format&fit=crop&q=60",
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-08-22T05:01:45.650Z",
+        "note": "Citizen service request registered in municipal portal.",
+        "updatedBy": "Citizen (Rohith Reddy)"
+      }
+    ]
+  },
+  {
+    "id": "GRV-2026-1001",
+    "title": "Major Water Main Pipe Burst & Street Flooding",
+    "category": "DEPT-WTR",
+    "departmentName": "Water & Sewage Supply",
+    "description": "A high-pressure underground water pipe burst at the intersection of 5th Ave and Grand Street, flooding the roadway and causing low water pressure in nearby apartment blocks.",
+    "location": "5th Ave & Grand St Intersection, District 3",
+    "coordinates": {
+      "lat": 40.7128,
+      "lng": -74.006
+    },
+    "priority": "Critical",
+    "status": "In Progress",
+    "citizenName": "Alex Mercer",
+    "citizenPhone": "+1 (555) 234-5678",
+    "citizenEmail": "alex.m@example.com",
+    "submittedAt": "2026-08-21T14:30:00.000Z",
+    "updatedAt": "2026-08-22T08:15:00.000Z",
+    "assignedOfficer": "Field Repair Unit 4 (Lead: Eng. Sarah Jenkins)",
+    "imageUrl": "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b2?w=600&auto=format&fit=crop&q=60",
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-08-21T14:30:00.000Z",
+        "note": "Grievance lodged via Citizen Mobile Portal.",
+        "updatedBy": "Citizen (Alex Mercer)"
+      },
+      {
+        "status": "Under Review",
+        "timestamp": "2026-08-21T14:45:00.000Z",
+        "note": "Emergency triage confirmed high water volume risk.",
+        "updatedBy": "Dispatcher Unit"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-08-21T15:10:00.000Z",
+        "note": "Assigned to Water & Sewage Emergency Response Team B.",
+        "updatedBy": "Eng. Sarah Jenkins"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-08-22T08:15:00.000Z",
+        "note": "Isolation valves shut off. Excavation and pipe section replacement underway.",
+        "updatedBy": "Crew Chief Miller"
+      }
+    ]
+  },
+  {
+    "id": "GRV-2026-1002",
+    "title": "Uncollected Garbage Accumulation near Public Market",
+    "category": "DEPT-SAN",
+    "departmentName": "Sanitation & Waste Mgmt",
+    "description": "Commercial trash dumpsters behind the Westside Public Market have overflowed into sidewalk areas for 3 consecutive days, creating smell and health concerns.",
+    "location": "Westside Central Market, Block B, 42nd St",
+    "coordinates": {
+      "lat": 40.7306,
+      "lng": -73.9352
+    },
+    "priority": "High",
+    "status": "Assigned",
+    "citizenName": "Maria Delgado",
+    "citizenPhone": "+1 (555) 345-6789",
+    "citizenEmail": "mdelgado@marketassoc.org",
+    "submittedAt": "2026-08-21T09:12:00.000Z",
+    "updatedAt": "2026-08-21T11:00:00.000Z",
+    "assignedOfficer": "Sanitation Fleet Crew #12",
+    "imageUrl": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&auto=format&fit=crop&q=60",
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-08-21T09:12:00.000Z",
+        "note": "Complaint filed with attached site photograph.",
+        "updatedBy": "Citizen (Maria Delgado)"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-08-21T11:00:00.000Z",
+        "note": "Heavy compaction truck scheduled for special evening route dispatch.",
+        "updatedBy": "Elena Rostova"
+      }
+    ]
+  },
+  {
+    "id": "GRV-2026-1003",
+    "title": "Multiple Street Light Outages along Elmwood Avenue",
+    "category": "DEPT-PWR",
+    "departmentName": "Electrical & Street Lighting",
+    "description": "A stretch of 6 consecutive street lights from 12th St to 16th St are out of order, rendering the residential sidewalk completely dark at night.",
+    "location": "Elmwood Ave (12th St to 16th St)",
+    "coordinates": {
+      "lat": 40.7589,
+      "lng": -73.9851
+    },
+    "priority": "Medium",
+    "status": "Resolved",
+    "citizenName": "Jonathan Hayes",
+    "citizenPhone": "+1 (555) 456-7890",
+    "citizenEmail": "jhayes22@gmail.com",
+    "submittedAt": "2026-08-19T18:00:00.000Z",
+    "updatedAt": "2026-08-20T16:30:00.000Z",
+    "assignedOfficer": "Lineman Team Alpha",
+    "imageUrl": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=600&auto=format&fit=crop&q=60",
+    "feedbackRating": 5,
+    "feedbackComment": "Repaired within 24 hours. Excellent response time!",
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-08-19T18:00:00.000Z",
+        "note": "Citizen reported dark zone on Elmwood Ave.",
+        "updatedBy": "Citizen (Jonathan Hayes)"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-08-20T08:30:00.000Z",
+        "note": "Dispatched Electrical inspection van.",
+        "updatedBy": "Robert Vance"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-08-20T11:00:00.000Z",
+        "note": "Replaced faulty transformer fuse box block.",
+        "updatedBy": "Lineman Team Alpha"
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-08-20T16:30:00.000Z",
+        "note": "All 6 light poles tested operational and verified.",
+        "updatedBy": "Robert Vance"
+      }
+    ]
+  },
+  {
+    "id": "GRV-2026-1004",
+    "title": "Deep Pothole Hazards on Bus Route 14",
+    "category": "DEPT-RDS",
+    "departmentName": "Roads & Civil Infrastructure",
+    "description": "Two severe potholes measuring approx 8 inches deep have formed on the eastbound lane, causing vehicle damage and traffic slowing.",
+    "location": "Oakland Boulevard near Community Hospital Entrance",
+    "coordinates": {
+      "lat": 40.7829,
+      "lng": -73.9654
+    },
+    "priority": "High",
+    "status": "Assigned",
+    "citizenName": "David K. Chen",
+    "citizenPhone": "+1 (555) 567-8901",
+    "citizenEmail": "dchen.dr@hospital.org",
+    "submittedAt": "2026-08-22T07:45:00.000Z",
+    "updatedAt": "2026-08-22T04:55:04.408Z",
+    "assignedOfficer": "Pending Allocation",
+    "imageUrl": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=600&auto=format&fit=crop&q=60",
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-08-22T07:45:00.000Z",
+        "note": "Grievance submitted with exact GPS coordinates.",
+        "updatedBy": "Citizen (David K. Chen)"
+      },
+      {
+        "status": "Under Review",
+        "timestamp": "2026-08-22T08:00:00.000Z",
+        "note": "Passed preliminary validation. Queueing for road patching crew assignment.",
+        "updatedBy": "System Automation"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-08-22T04:55:04.408Z",
+        "note": "Status updated to Assigned (Assigned to Pending Allocation)",
+        "updatedBy": "Municipal Dispatch Officer"
+      }
+    ]
+  },
+  {
+    "id": "GRV-2026-1005",
+    "title": "Fallen Tree Branch Blocking Pedestrian Walkway",
+    "category": "DEPT-PRK",
+    "departmentName": "Parks & Environmental Health",
+    "description": "Large oak tree branch snapped during last night's thunderstorm and is blocking the primary footpath into Riverside Park.",
+    "location": "Riverside Park South Gate, River Drive",
+    "coordinates": {
+      "lat": 40.8005,
+      "lng": -73.958
+    },
+    "priority": "Medium",
+    "status": "In Progress",
+    "citizenName": "Priya Sharma",
+    "citizenPhone": "+1 (555) 678-9012",
+    "citizenEmail": "priya.sharma@domain.com",
+    "submittedAt": "2026-08-22T06:15:00.000Z",
+    "updatedAt": "2026-08-22T09:00:00.000Z",
+    "assignedOfficer": "Arboriculture Crew 2",
+    "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop&q=60",
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-08-22T06:15:00.000Z",
+        "note": "Reported by morning park runner.",
+        "updatedBy": "Citizen (Priya Sharma)"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-08-22T07:00:00.000Z",
+        "note": "Chainsaw crew assigned.",
+        "updatedBy": "Dr. Anita Desai"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-08-22T09:00:00.000Z",
+        "note": "Crew on site cutting branch into transportable logs.",
+        "updatedBy": "Arboriculture Crew 2"
+      }
+    ]
+  }
+]
